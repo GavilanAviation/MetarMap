@@ -23,7 +23,7 @@ else
 		sudo apt-get install build-essential python-dev git scons swig
 		sudo apt-get install python-urllib3
 		sudo apt-get install python-lxml
-		chmod +x runmetarscript.sh
+		chmod +x /home/pi/MetarMap/runmetarscript.sh
 		echo "Rebooting"
 		sudo shutdown -r now
 	else
