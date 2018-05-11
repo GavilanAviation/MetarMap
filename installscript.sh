@@ -19,11 +19,11 @@ else
 	then
 		sudo echo "blacklist snd_bcm2835" >>  /etc/modprobe.d/snd-blacklist.conf
 		sudo sed -i '/dtparam=audio/ s/dtparam/#dtparam/' /boot/config.txt
-		sudo apt-get update
-		sudo apt-get install build-essential python-dev git scons swig
-		sudo apt-get install python-urllib3
-		sudo apt-get install python-lxml
-		chmod +x /home/pi/MetarMap/runmetarscript.sh
+		sudo apt-get -y update
+		sudo apt-get -y install python python-urllib3 python-lxml
+#		sudo apt-get install python-urllib3
+#		sudo apt-get install python-lxml
+#		chmod +x /home/pi/MetarMap/runmetarscript.sh
 		echo "Rebooting"
 		sudo shutdown -r now
 	else
