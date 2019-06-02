@@ -7,7 +7,7 @@ Bin for MetarMap
 General info for MetarMap application
 
 written by Herb Spenner
-rev. 04/21/2018
+rev. 04/06/2019
 """
 #Import Config File
 import ConfigMetarMap
@@ -21,6 +21,9 @@ urllib3.disable_warnings()
 
 #Import XML Library
 from lxml import etree
+
+#Import LED functions
+import neopixel
 
 def Get_Flight_Category(airport):
     """
@@ -88,3 +91,30 @@ def Get_URL_General(url):
         print('Connection failed.')
     return None
     #end of Get_URL_General
+    
+def Light_Flight_Category_LED(strip):
+    """
+    function:   Turn on Flight Category LEDS
+    
+    input:      strip - neopixel object
+    
+    return:     none
+    """
+    color_array=ConfigMetarMap.FlightCatDef['LIFR']
+    strip.setPixelColorRGB(ConfigMetarMap.LIFR_LED_Num - 1,color_array['red'],color_array['green'],
+                           color_array['blue'])
+    color_array=ConfigMetarMap.FlightCatDef['IFR']
+    strip.setPixelColorRGB(ConfigMetarMap.IFR_LED_Num - 1,color_array['red'],color_array['green'],
+                           color_array['blue'])
+    color_array=ConfigMetarMap.FlightCatDef['MVFR']
+    strip.setPixelColorRGB(ConfigMetarMap.MVFR_LED_Num - 1,color_array['red'],color_array['green'],
+                           color_array['blue'])
+    color_array=ConfigMetarMap.FlightCatDef['VFR']
+    strip.setPixelColorRGB(ConfigMetarMap.VFR_LED_Num - 1,color_array['red'],color_array['green'],
+                           color_array['blue'])
+    strip.show()
+    if ConfigMetarMap.PrintDebug:
+        print("Flight Category LEDs turned on")
+    return
+    #end of Light_Flight_Category_LED
+

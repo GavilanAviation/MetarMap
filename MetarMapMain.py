@@ -8,7 +8,7 @@ Metar Map Main Code
 Get flight category inforation from aviationweather.gov and control LED map
 
 written by Herb Spenner
-rev. 05/10/2018
+rev. 04/06/2019
 
 """
 
@@ -28,6 +28,10 @@ strip = neopixel.Adafruit_NeoPixel(ConfigMetarMap.LED_COUNT, ConfigMetarMap.LED_
                                    ConfigMetarMap.LED_CHANNEL)
 # Intialize the library (must be called once before other functions).
 strip.begin()
+
+# Check if Flight Category Lights should be on
+if ConfigMetarMap.DisplayFlightCategory:
+    BinMetarMap.Light_Flight_Category_LED(strip)
 
 AirportError = False
 #Process Airports

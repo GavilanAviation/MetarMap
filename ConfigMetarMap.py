@@ -6,7 +6,7 @@ MetarMapConfig.py
 Config File for MetarMapMain
 
 written by Herb Spenner
-rev. 05/10/2018
+rev. 04/06/2019
 
 """
 
@@ -49,6 +49,22 @@ LED_DMA        = 10      # DMA channel to use for generating signal (try 10)
 LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
+
+"""
+Flight Category Lights
+
+This enables the display of four LEDs that display the standard colors
+used of the four flight categorys
+
+To enable this feature, set DisplayFlightCategory to True
+Then, set the corresponding LED number
+
+"""
+DisplayFlightCategory = True
+LIFR_LED_Num = 17   # Low Instrument Flight Rules LED Number
+IFR_LED_Num = 18    # Instrument Flight Rules LED Number
+MVFR_LED_Num = 19   # Marginal Visual Flight Rules LED Number
+VFR_LED_Num = 20    # Visual Flight Rules LED Number
 
 """
 Debugging Switch
